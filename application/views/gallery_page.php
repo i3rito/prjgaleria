@@ -1,61 +1,89 @@
-<?php
-defined('BASEPATH') OR exit('No direct script access allowed'); ?>
-
 <!DOCTYPE html>
-
 <html lang="en">
-
 	<head>
-		<title> hello world </title>
+		<title>Projeto Galeria</title>
+		<script src="/assets/js/jquery.min.js"></script>
+		<style>
+			.item-galeria{
+				display: none;
+			}
+			.active {
+				border: 1px solid red;
+				display: inline;
+			}
+			#viewport{
+				height: 172px;
+				width: 300px;
+			}
+		</style>
 	</head>
-
 	<body>
 
-	<div class="container">
-		<img src="<?php echo($img1); ?>" id="viewport" style="width:44.6%">
-	</div>
-
-
-	<!-- buttons -->
-		<div class="row">
-			<div class="column">
-				<img src="<?php echo($img4); ?>" style="width:50px" onclick="chooseUp( document.getElementById('viewport') )">
-				<img src="<?php echo($img5); ?>" style="width:50px" onclick="chooseDown( document.getElementById('viewport') )">
+		<div id="viewport">
+		<!-- Imagens -->
+			<div>
+				<?php foreach($imagens as $key => $imagem) { ?>
+					<img src="<?php echo $imagem; ?>" class="item-galeria <?php echo ($key==0) ? 'active' : ''; ?>"  style="width: 300px;"/>
+				<?php } ?>
 			</div>
 		</div>
 
+		<!-- buttons -->
+		<div>
+			<img src="<?php echo($botoes[0]); ?>" style="width:50px" class="botao-voltar">
+			<img src="<?php echo($botoes[1]); ?>" style="width:50px" class="botao-avancar">
+		</div>
+
 		<script>
+			(function() {
 
-            function chooseDown(imgs) {
+			    var imagens = $('.item-galeria');
 
-                if(imgs.src == "<?php echo($img1); ?>"){
-                    var expandImg = document.getElementById("viewport");
-                    expandImg.src = "<?php echo($img2); ?>";
-                }else if(imgs.src == "<?php echo($img2); ?>"){
-                    var expandImg = document.getElementById("viewport");
-                    expandImg.src = "<?php echo($img3); ?>";
-                }else if(imgs.src == "<?php echo($img3); ?>") {
-                    var expandImg = document.getElementById("viewport");
-                    expandImg.src = "<?php echo($img1); ?>";
-                }
+			    var indiceAtivo;
 
-            }
-            function chooseUp(imgs) {
+			    var numeroImagnes = imagens.length;
 
-                if(imgs.src == "<?php echo($img1); ?>"){
-                    var expandImg = document.getElementById("viewport");
-                    expandImg.src = "<?php echo($img3); ?>";
-                }else if(imgs.src == "<?php echo($img2); ?>"){
-                    var expandImg = document.getElementById("viewport");
-                    expandImg.src = "<?php echo($img1); ?>";
-                }else if(imgs.src == "<?php echo($img3); ?>") {
-                    var expandImg = document.getElementById("viewport");
-                    expandImg.src = "<?php echo($img2); ?>";
-                }
+			    var proximoAtivo;
 
-            }
+			    imagens.each(function(index, value) {
+					if( $(value).hasClass('active') ) {
+					    indiceAtivo = index;
+					}
+				});
+
+				// Avançar imagem.
+			    $('.botao-avancar').click(function() {
+			        var imagens = $('.item-galeria');
+			        $(imagens[indiceAtivo]).removeClass('active');
+
+			        if( indiceAtivo == numeroImagnes-1 ) {
+					    proximoAtivo = 0;
+					} else {
+			            proximoAtivo = indiceAtivo + 1;
+					}
+
+                    $(imagens[proximoAtivo]).addClass('active');
+                    indiceAtivo = proximoAtivo;
+				});
+
+			    // Voltar imagem.
+			    $('.botao-voltar').click(function() {
+                    var imagens = $('.item-galeria');
+                    $(imagens[indiceAtivo]).removeClass('active');
+
+                    if( indiceAtivo == 0 ) {
+                        proximoAtivo = numeroImagnes-1;
+                    } else {
+                        proximoAtivo = indiceAtivo - 1;
+                    }
+
+                    $(imagens[proximoAtivo]).addClass('active');
+                    indiceAtivo = proximoAtivo;
+				});
+
+			})();
 		</script>
 
-		</body>
+	</body>
 
 </html>
