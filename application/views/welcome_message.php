@@ -20,9 +20,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	</head>
 
-	<body>
-
-	<a href="index.php" > ir para a versão do bootstrap</a>
+	<a href="" >Versão do bootstrap</a>
+	<br><a href="gallery" >Versão da deepweb</a>
 
 	<div class="container">
 
