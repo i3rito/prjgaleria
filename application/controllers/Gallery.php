@@ -5,6 +5,7 @@ class Gallery extends CI_Controller {
 
 	public function index()
 	{
+
 		$imagens = array(
 			"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzO2-YI3A-GLoh26_r1JpIe6HUl_yuLznBA6Q7J8PSa-rrtmMGAQ&s",
 			"https://assets.foxdcg.com/dpp-uploaded/images/the-simpsons/seriesDetail_s31.jpg?fit=inside%7C1920:1080",
@@ -18,7 +19,13 @@ class Gallery extends CI_Controller {
 
 		$data['imagens'] = $imagens;
 		$data['botoes'] = $botoes;
+		$data['title'] = "H leria ta boa agora.";
+
+		# View.
+		$this->load->view('templates/header', $data);
 		$this->load->view('gallery_page', $data);
+		$this->load->view('templates/footer', $data);
+
 	}
 
 }
