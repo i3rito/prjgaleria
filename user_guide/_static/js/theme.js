@@ -88,7 +88,7 @@ $(window).on('resize', function(){
     if (getCookie('ciNav') == 'yes' && $(window).width() <= 768) { // 768px is the tablet size defined by the theme
         $('.wy-nav-side').show();
     }
-    // changing css with jquery seems to override the default css media query
+    // changing css with jquery.min.js seems to override the default css media query
     // change margin
     else if (getCookie('ciNav') == 'no' && $(window).width() <= 768) {
         $('.wy-nav-content-wrap').css({'margin-left': 0});

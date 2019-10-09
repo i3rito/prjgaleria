@@ -62,7 +62,7 @@ jQuery.getQueryParameters = function(s) {
 };
 
 /**
- * highlight a given string on a jquery object by wrapping it in
+ * highlight a given string on a jquery.min.js object by wrapping it in
  * span elements with the given class name.
  */
 jQuery.fn.highlightText = function(text, className) {
