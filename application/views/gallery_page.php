@@ -1,63 +1,74 @@
-	<div id="viewport">
-		<!-- Imagens -->
-		<div>
-			<?php foreach($imagens as $key => $imagem) { ?>
-				<img src="<?php echo $imagem; ?>" class="item-galeria <?php echo ($key==0) ? 'active' : ''; ?>"  style="width: 300px;"/>
-			<?php } ?>
-		</div>
-	</div>
 
-	<!-- buttons -->
+<p> Criada em: <?php echo $dataCriacaoGaleria;?> </p>
+
+<div id="viewport">
+	<!-- Imagens -->
 	<div>
-		<?php foreach($botoes as $key => $botao) { ?>
-			<img src="<?php echo($botao); ?>" class=" <?php echo ($key==0) ? 'botao-voltar' : 'botao-avancar'; ?>"  style="width: 50px;"><?php } ?>
+		<?php foreach($imagens as $key => $imagem) { ?>
+			<img src="<?php echo $imagem->url; ?>" class="item-galeria <?php echo ($key==0) ? 'active' : ''; ?>"  style="width: 300px;"/>
+			<br>
+		<?php } ?>
+
 	</div>
 
-	<script>
-		(function() {
+</div>
 
-			var imagens = $('.item-galeria');
+<!-- buttons -->
+<div>
+	<?php foreach($botoes as $key => $botao) { ?>
+		<img src="<?php echo($botao); ?>" class=" <?php echo ($key==0) ? 'botao-voltar' : 'botao-avancar'; ?>"  style="width: 50px;">
+	<?php } ?>
+</div>
 
-			var indiceAtivo;
-			var numeroImagnes = imagens.length;
-			var proximoAtivo;
+<form action="<?php echo base_url('adicionarImagem/index/'.$idGaleria) ?>" method="post">
+	<button type="submit">Add imagem</button>
+</form>
 
-			imagens.each(function(index, value) {
-				if( $(value).hasClass('active') ) {
-					indiceAtivo = index;
-				}
-			});
+<script>
+    (function() {
 
-			// Avançar imagem.
-			$('.botao-avancar').click(function() {
-				var imagens = $('.item-galeria');
-				$(imagens[indiceAtivo]).removeClass('active');
+        var imagens = $('.item-galeria');
 
-				if( indiceAtivo == numeroImagnes-1 ) {
-					proximoAtivo = 0;
-				} else {
-					proximoAtivo = indiceAtivo + 1;
-				}
+        var indiceAtivo;
+        var numeroImagnes = imagens.length;
+        var proximoAtivo;
 
-				$(imagens[proximoAtivo]).addClass('active');
-				indiceAtivo = proximoAtivo;
-			});
+        imagens.each(function(index, value) {
+            if( $(value).hasClass('active') ) {
+                indiceAtivo = index;
+            }
+        });
 
-			// Voltar imagem.
-			$('.botao-voltar').click(function() {
-				var imagens = $('.item-galeria');
-				$(imagens[indiceAtivo]).removeClass('active');
+        // Avançar imagem.
+        $('.botao-avancar').click(function() {
+            var imagens = $('.item-galeria');
+            $(imagens[indiceAtivo]).removeClass('active');
 
-				if( indiceAtivo == 0 ) {
-					proximoAtivo = numeroImagnes-1;
-				} else {
-					proximoAtivo = indiceAtivo - 1;
-				}
+            if( indiceAtivo == numeroImagnes-1 ) {
+                proximoAtivo = 0;
+            } else {
+                proximoAtivo = indiceAtivo + 1;
+            }
 
-				$(imagens[proximoAtivo]).addClass('active');
-				indiceAtivo = proximoAtivo;
-			});
+            $(imagens[proximoAtivo]).addClass('active');
+            indiceAtivo = proximoAtivo;
+        });
 
-		})();
-	</script>
+        // Voltar imagem.
+        $('.botao-voltar').click(function() {
+            var imagens = $('.item-galeria');
+            $(imagens[indiceAtivo]).removeClass('active');
+
+            if( indiceAtivo == 0 ) {
+                proximoAtivo = numeroImagnes-1;
+            } else {
+                proximoAtivo = indiceAtivo - 1;
+            }
+
+            $(imagens[proximoAtivo]).addClass('active');
+            indiceAtivo = proximoAtivo;
+        });
+
+    })();
+</script>
 
