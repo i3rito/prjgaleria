@@ -1,32 +1,35 @@
-<html>
-<head>
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+?>
+<!DOCTYPE html>
 
-	<title>H legria</title>
+	<head>
 
-	<script src="/assets/js/jquery.min.js"></script>
+		<title>H legria</title>
 
-	<style>
-		.item-galeria{
-			display: none;
-		}
-		.active {
-			border: 1px solid red;
-			display: inline;
-		}
-		#viewport{
-			height: 172px;
-			width: 300px;
-		}
-	</style>
+		<script src="/assets/js/jquery.min.js"></script>
 
-
-</head>
-
-<meta charset="UTF-8">
+		<style>
+			.item-galeria{
+				display: none;
+			}
+			.active {
+				border: 1px solid red;
+				display: inline;
+			}
+			#viewport{
+				overflow: hidden;
+				height: 172px;
+				width: 300px;
+			}
+		</style>
 
 
-<body>
+	</head>
 
-	<a href="welcome" >Versão do bootstrap</a>
 
-	<h1><?php echo $title; ?></h1>
+	<body>
+
+		<a href="<?php echo base_url('welcome'); ?>" >Versão do bootstrap</a>
+
+		<h1><?php echo $title; ?></h1>
