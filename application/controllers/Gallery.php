@@ -11,7 +11,7 @@ class Gallery extends CI_Controller {
 		);
 
 		$galeria = $this->Galerias_model->get_galeria($idGaleria);
-		$dataCriacaoGaleria = $this->Galerias_model->get_dataCriacaoGaleria($idGaleria)->dataCriacao;
+		$dataCriacaoGaleria = $galeria->dataCriacao;
 
 		$data['idGaleria'] = $idGaleria;
 		$data['imagens'] = $this->Imagens_model->get_imagens($idGaleria);
@@ -31,7 +31,6 @@ class Gallery extends CI_Controller {
 
 		$this->load->helper('form');
 		$this->load->library('form_validation');
-
 		$this->form_validation->set_rules('url', 'text', 'required');
 		$this->form_validation->set_rules('idGaleria', 'hidden', 'required');
 
@@ -39,6 +38,7 @@ class Gallery extends CI_Controller {
 		{
 			echo('WHAAAAt?');
 		}
+
 		else
 		{
 
