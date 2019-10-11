@@ -20,7 +20,7 @@ class Imagens_model extends CI_Model {
 			'idGaleria' => $idGaleria,
 		);
 
-		$a =  array($this->db->insert('Imagens', $data));
-		return $a;
+		$result =  array($this->db->insert('Imagens', $data));
+		return $result;
 	}
 }

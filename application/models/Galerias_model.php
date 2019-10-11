@@ -34,8 +34,8 @@ class Galerias_model extends CI_Model
 			'dataCriacao' => date('y-m-d'),
 		);
 
-		$a =  array($this->db->insert('Galerias', $data));
-		return $a;
+		$result =  array($this->db->insert('Galerias', $data));
+		return $result;
 	}
 
 }

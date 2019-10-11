@@ -21,15 +21,12 @@ class AdicionarImagem extends CI_Controller {
 
 		$this->load->helper('form');
 		$this->load->library('form_validation');
-
 		$this->form_validation->set_rules('url', 'text', 'required');
 		$this->form_validation->set_rules('idGaleria', 'hidden', 'required');
-
 		$url = $this->input->post('url');
 		$idGaleria = $this->input->post('idGaleria');
-
 		$this->Imagens_model->insere_imagens($url, $idGaleria);
-		header('Location: ' . base_url('home'));
+		redirect('/gallery/index/'.$idGaleria, 'location');
 
 	}
 

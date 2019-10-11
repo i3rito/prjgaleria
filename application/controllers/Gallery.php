@@ -47,7 +47,6 @@ class Gallery extends CI_Controller {
 
 			$a = $this->Imagens_model->insere_imagens($url, $idGaleria);
 
-			redirect($_SERVER['HTTP_REFERER']);
 
 		}
 
