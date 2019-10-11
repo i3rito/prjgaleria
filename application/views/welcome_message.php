@@ -20,7 +20,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 </head>
 
-<br><a href="gallery" >Versão da deepweb</a>
+<a href="<?php echo base_url('home') ?>" >Versão do Brito</a><br>
 
 <div class="container">
 
