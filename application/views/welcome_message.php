@@ -20,7 +20,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 </head>
 
-<a href="<?php echo base_url('home') ?>" >Versão do Brito</a><br>
 
 <div class="container">
 
@@ -59,6 +58,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	</div>
 </div>
 
+<a href="<?php echo base_url('home') ?>" >Versão do Brito</a><br>
 </body>
 
 </html>

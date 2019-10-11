@@ -12,3 +12,5 @@
 	</form>
 
 </div>
+
+<a href="<?php echo base_url('welcome'); ?>" >Versão do bootstrap</a>

@@ -30,6 +30,4 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	<body>
 
-		<a href="<?php echo base_url('welcome'); ?>" >Versão do bootstrap</a>
-
 		<h1><?php echo $title; ?></h1>
