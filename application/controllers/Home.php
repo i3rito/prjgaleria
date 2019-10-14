@@ -5,12 +5,9 @@ class Home extends CI_Controller {
 	public function index()
 	{
 		$title = 'Galerias';
-
-
-		$galerias = $this->Galerias_model->get_galerias();
-
+		$galleryList = $this->Gallery_model->getGalleryList();
 		$data ['title'] = $title;
-		$data ['galerias'] = $galerias;
+		$data ['galleryList'] = $galleryList;
 
 		# View.
 		$this->load->view('templates/header', $data);

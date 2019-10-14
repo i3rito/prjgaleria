@@ -1,26 +1,26 @@
 <?php
 class Imagens_model extends CI_Model {
 
-	public function get_imagens($idGaleria)
+	public function getImages($idGallery)
 	{
 		$this->db->select('*');
-		$this->db->from('Imagens');
-		$this->db->where('idGaleria', $idGaleria);
-
+		$this->db->from('Images');
+		$this->db->where('idGallery', $idGallery);
 		$query = $this->db->get();
 		$results = $query->result();
+
 		return $results;
 	}
 
-	public function insere_imagens($url, $idGaleria)
+	public function insertImage($url, $idGallery)
 	{
 		$this->load->helper('url');
 		$data = array(
 			'url' => $url,
-			'idGaleria' => $idGaleria,
+			'idGallery' => $idGallery,
 		);
+		$result =  array($this->db->insert('Images', $data));
 
-		$result =  array($this->db->insert('Imagens', $data));
 		return $result;
 	}
 }

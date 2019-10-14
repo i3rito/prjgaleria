@@ -1,11 +1,13 @@
 
-<p> Criada em: <?php echo $dataCriacaoGaleria;?> </p>
+<h1><?php echo $title; ?></h1>
+
+<p> Criada em: <?php echo $galleryDate;?> </p>
 
 <div id="viewport">
 	<!-- Imagens -->
 	<div>
-		<?php foreach($imagens as $key => $imagem) { ?>
-			<img src="<?php echo $imagem->url; ?>" class="item-galeria <?php echo ($key==0) ? 'active' : ''; ?>"  style="width: 300px;"/>
+		<?php foreach($images as $key => $image) { ?>
+			<img src="<?php echo $image->url; ?>" class="gallery-item <?php echo ($key==0) ? 'active' : ''; ?>"  style="width: 300px;"/>
 			<br>
 		<?php } ?>
 
@@ -15,19 +17,19 @@
 
 <!-- buttons -->
 <div>
-	<?php foreach($botoes as $key => $botao) { ?>
-		<img src="<?php echo($botao); ?>" class=" <?php echo ($key==0) ? 'botao-voltar' : 'botao-avancar'; ?>"  style="width: 50px;">
+	<?php foreach($buttons as $key => $button) { ?>
+		<img src="<?php echo($button); ?>" class=" <?php echo ($key==0) ? 'btn-back' : 'btn-advance'; ?>"  style="width: 50px;">
 	<?php } ?>
 </div>
 
-<form action="<?php echo base_url('adicionarImagem/index/'.$idGaleria) ?>" method="post">
+<form action="<?php echo base_url('addImage/index/'.$idGallery) ?>" method="post">
 	<button type="submit">Add imagem</button>
 </form>
 
 <script>
     (function() {
 
-        var imagens = $('.item-galeria');
+        var imagens = $('.gallery-item');
 
         var indiceAtivo;
         var numeroImagnes = imagens.length;
@@ -40,8 +42,8 @@
         });
 
         // Avançar imagem.
-        $('.botao-avancar').click(function() {
-            var imagens = $('.item-galeria');
+        $('.btn-advance').click(function() {
+            var imagens = $('.gallery-item');
             $(imagens[indiceAtivo]).removeClass('active');
 
             if( indiceAtivo == numeroImagnes-1 ) {
@@ -55,8 +57,8 @@
         });
 
         // Voltar imagem.
-        $('.botao-voltar').click(function() {
-            var imagens = $('.item-galeria');
+        $('.btn-back').click(function() {
+            var imagens = $('.gallery-item');
             $(imagens[indiceAtivo]).removeClass('active');
 
             if( indiceAtivo == 0 ) {

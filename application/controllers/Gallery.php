@@ -3,28 +3,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Gallery extends CI_Controller {
 
-	public function index($idGaleria)
+	public function index($idGallery)
 	{
-		$botoes = array(
+		$buttons = array(
 			"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTK4O69duEn6qOBwUz3m5eCYHC4EBCF8tOuAiZoq_F8PzFrI4pE6A&s",
 			"https://image.flaticon.com/icons/png/512/64/64031.png",
 		);
 
-		$galeria = $this->Galerias_model->get_galeria($idGaleria);
-		$dataCriacaoGaleria = $galeria->dataCriacao;
-
-		$data['idGaleria'] = $idGaleria;
-		$data['imagens'] = $this->Imagens_model->get_imagens($idGaleria);
-
-		$data['botoes'] = $botoes;
-		$data['idGaleria'] = $idGaleria;
-		$data['dataCriacaoGaleria'] = $dataCriacaoGaleria;
-		$data['title'] = $galeria->nome;
+		$gallery = $this->Gallery_model->getGallery($idGallery);
+		$galleryDate = $gallery->galleryDate;
+		$data['idGallery'] = $idGallery;
+		$data['images'] = $this->Imagens_model->getImages($idGallery);
+		$data['buttons'] = $buttons;
+		$data['galleryDate'] = $galleryDate;
+		$data['title'] = $gallery->name;
 
 		# View.
-		$this->load->view('templates/header', $data);
-		$this->load->view('gallery_page', $data);
-		$this->load->view('templates/footer', $data);
+		$this->load->view('templates/gallery/header');
+		$this->load->view('galleryPage', $data);
+		$this->load->view('templates/gallery/footer');
 
 	}
 	public function create(){
@@ -32,24 +29,17 @@ class Gallery extends CI_Controller {
 		$this->load->helper('form');
 		$this->load->library('form_validation');
 		$this->form_validation->set_rules('url', 'text', 'required');
-		$this->form_validation->set_rules('idGaleria', 'hidden', 'required');
+		$this->form_validation->set_rules('idGallery', 'hidden', 'required');
 
 		if ($this->form_validation->run() === FALSE)
 		{
-			echo('WHAAAAt?');
-		}
-
-		else
+			show_404();
+		} else
 		{
-
-			$idGaleria = $this->input->post('idGaleria');
+			$idGallery = $this->input->post('idGallery');
 			$url = $this->input->post('url');
-
-			$a = $this->Imagens_model->insere_imagens($url, $idGaleria);
-
-
+			$this->Imagens_model->insertImage($url, $idGallery);
 		}
-
 
 	}
 }
