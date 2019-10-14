@@ -7,9 +7,9 @@ class AddGallery extends CI_Controller {
 	{
 		$title = 'Crie uma nova galeria.';
 		$data ['title'] = $title;
-		$this->load->view('templates/header', $data);
+		$this->load->view('templates/header');
 		$this->load->view('addGallery', $data);
-		$this->load->view('templates/footer', $data);
+		$this->load->view('templates/footer');
 	}
 
 	public function add()
@@ -19,7 +19,7 @@ class AddGallery extends CI_Controller {
 		$this->form_validation->set_rules('name', 'text', 'required');
 		$name = $this->input->post('name');
 		$this->Gallery_model->insertGallery($name);
-		redirect('/home/', 'location');
+		redirect(base_url(), 'location');
 	}
 
 }

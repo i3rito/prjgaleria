@@ -1,20 +1,15 @@
 <?php
+defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Home extends CI_Controller {
+class Home extends CI_Controller{
 
 	public function index()
 	{
-		$title = 'Galerias';
-		$galleryList = $this->Gallery_model->getGalleryList();
+		$title = 'Home';
 		$data ['title'] = $title;
-		$data ['galleryList'] = $galleryList;
-
-		# View.
-		$this->load->view('templates/header', $data);
+		$this->load->view('templates/header');
 		$this->load->view('home', $data);
-		$this->load->view('templates/footer', $data);
-
+		$this->load->view('templates/footer');
 	}
-
 
 }
