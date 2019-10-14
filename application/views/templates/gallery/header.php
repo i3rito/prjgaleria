@@ -5,7 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	<head>
 
-		<title>H legria</title>
+		<title>H leria</title>
 
 		<script src="/assets/js/jquery.min.js"></script>
 

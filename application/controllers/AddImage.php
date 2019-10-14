@@ -10,9 +10,7 @@ class AddImage extends CI_Controller {
 		$data['idGallery'] = $idGallery;
 
 		# View.
-		$this->load->view('templates/header');
 		$this->load->view('addImage', $data);
-		$this->load->view('templates/footer');
 
 	}
 

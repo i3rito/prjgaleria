@@ -11,6 +11,7 @@ class GalleryList extends CI_Controller {
 
 		# View.
 		$this->load->view('templates/galleryList/header');
+		$this->load->view('templates/header');
 		$this->load->view('galleryList', $data);
 		$this->load->view('templates/galleryList/footer');
 

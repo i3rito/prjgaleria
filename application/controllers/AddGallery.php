@@ -7,9 +7,7 @@ class AddGallery extends CI_Controller {
 	{
 		$title = 'Crie uma nova galeria.';
 		$data ['title'] = $title;
-		$this->load->view('templates/header');
 		$this->load->view('addGallery', $data);
-		$this->load->view('templates/footer');
 	}
 
 	public function add()
