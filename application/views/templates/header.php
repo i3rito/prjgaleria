@@ -6,26 +6,29 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<head>
 
 		<style>
-
 			ul{
 				list-style-type: none;
 				background-color: #333333;
 			}li {
 				 float: left;
 							 background-color: #333333;
-			 }
-
-			li a {
+			 } li a {
 				color: red;
 				text-align: center;
 				padding: 16px;
 				text-decoration: none;
 			}
-
-
+		</style>
+		<style>
+			th{
+				border: 1px solid #888888;
+				text-align: center;
+				padding: 10px;
+			}
 		</style>
 
-		<title>H leria</title>
+
+	<title>H leria</title>
 
 	</head>
 

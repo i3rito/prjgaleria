@@ -7,6 +7,7 @@ class AddGallery extends CI_Controller {
 	{
 		$title = 'Crie uma nova galeria.';
 		$data ['title'] = $title;
+
 		$this->load->view('addGallery', $data);
 	}
 
@@ -14,10 +15,15 @@ class AddGallery extends CI_Controller {
 	{
 		$this->load->helper('form');
 		$this->load->library('form_validation');
-		$this->form_validation->set_rules('name', 'text', 'required');
-		$name = $this->input->post('name');
-		$this->Gallery_model->insertGallery($name);
-		redirect(base_url(), 'location');
+		$this->form_validation->set_rules('name', 'text', 'required|min_length[3]', array('required' => 'Você deve preencher a %s.', 'min_length' => 'Utilize pelo menos 3 caracteres.'));
+
+		if ($this->form_validation->run() == FALSE) {
+			$this->load->view('addGallery');
+		} else {
+			$name = $this->input->post('name');
+			$this->Gallery_model->insertGallery($name);
+			redirect(base_url('galleryList'), 'location');
+		}
 	}
 
 }

@@ -17,9 +17,15 @@
 
 <!-- buttons -->
 <div>
-	<?php foreach($buttons as $key => $button) { ?>
+	<?php
+
+	if (count($images) <= 0){
+		echo "Esta galeria ainda não possui nenhuma foto.";
+	}else{
+	foreach($buttons as $key => $button) { ?>
 		<img src="<?php echo($button); ?>" class=" <?php echo ($key==0) ? 'btn-back' : 'btn-advance'; ?>"  style="width: 50px;">
-	<?php } ?>
+	<?php }
+	}?>
 </div>
 
 <form action="<?php echo base_url('addImage/index/'.$idGallery) ?>" method="post">

@@ -10,12 +10,9 @@ class GalleryList extends CI_Controller {
 		$data ['galleryList'] = $galleryList;
 
 		# View.
-		$this->load->view('templates/galleryList/header');
 		$this->load->view('templates/header');
 		$this->load->view('galleryList', $data);
-		$this->load->view('templates/galleryList/footer');
-
+		$this->load->view('templates/footer');
 	}
-
 
 }

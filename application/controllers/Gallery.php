@@ -19,6 +19,7 @@ class Gallery extends CI_Controller {
 		$data['title'] = $gallery->name;
 
 		# View.
+		$this->load->view('templates/header');
 		$this->load->view('templates/gallery/header');
 		$this->load->view('galleryPage', $data);
 		$this->load->view('templates/gallery/footer');

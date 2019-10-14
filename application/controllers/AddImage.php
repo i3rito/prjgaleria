@@ -10,6 +10,7 @@ class AddImage extends CI_Controller {
 		$data['idGallery'] = $idGallery;
 
 		# View.
+		$this->load->view('templates/header');
 		$this->load->view('addImage', $data);
 
 	}
@@ -19,14 +20,29 @@ class AddImage extends CI_Controller {
 
 		$this->load->helper('form');
 		$this->load->library('form_validation');
-		$this->form_validation->set_rules('url', 'text', 'required');
-		$this->form_validation->set_rules('$idGallery', 'hidden', 'required');
+
+		$this->form_validation->set_rules('url', 'url', 'required|callback_url_check', array('url_check' => 'Insira um URL válido.'));
+
 		$url = $this->input->post('url');
 		$idGallery = $this->input->post('$idGallery');
-		$this->Imagens_model->insertImage($url, $idGallery);
-		redirect('/gallery/index/'.$idGallery, 'location');
 
+
+		if ($this->form_validation->run() == FALSE) {
+			$title = 'Adicione uma imagem.';
+			$data ['title'] = $title;
+			$data['idGallery'] = $idGallery;
+
+			# View.
+			$this->load->view('templates/header');
+			$this->load->view('addImage', $data);
+		} else {
+			$this->Imagens_model->insertImage($url, $idGallery);
+			redirect('/gallery/index/'.$idGallery, 'location');
+		}
 	}
 
-
+	public function is_valid($url)
+	{
+		return is_valid($url);
+	}
 }

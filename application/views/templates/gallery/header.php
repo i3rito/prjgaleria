@@ -1,11 +1,3 @@
-<?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-?>
-<!DOCTYPE html>
-
-	<head>
-
-		<title>H leria</title>
 
 		<script src="/assets/js/jquery.min.js"></script>
 
@@ -22,9 +14,3 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				width: 300px;
 			}
 		</style>
-
-
-	</head>
-
-
-	<body>
