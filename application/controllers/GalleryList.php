@@ -6,8 +6,16 @@ class GalleryList extends CI_Controller {
 	{
 		$title = 'Galerias';
 		$galleryList = $this->Gallery_model->getGalleryList();
+		$galleries = array();
+		foreach ($galleryList as $gallery)
+		{
+			$images = $this->Imagens_model->getImages($gallery['id']);
+			$quantasImagens = count($images);
+			$gallery['imageCount'] = $quantasImagens;
+			$galleries[] = $gallery;
+		}
 		$data ['title'] = $title;
-		$data ['galleryList'] = $galleryList;
+		$data ['galleryList'] = $galleries;
 
 		# View.
 		$this->load->view('templates/header');

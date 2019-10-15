@@ -3,33 +3,38 @@
 
 <p> Criada em: <?php echo $galleryDate;?> </p>
 
-<div id="viewport">
-	<!-- Imagens -->
-	<div>
-		<?php foreach($images as $key => $image) { ?>
-			<img src="<?php echo $image->url; ?>" class="gallery-item <?php echo ($key==0) ? 'active' : ''; ?>"  style="width: 300px;"/>
-			<br>
+<!-- buttons -->
+<div>
+	<?php if (count($images) <= 0) { ?>
+	Esta galeria ainda não possui nenhuma foto.
+	<?php } else { ?>
+
+	<div id="viewport">
+		<!-- Imagens -->
+		<div>
+			<?php foreach($images as $key => $image) { ?>
+		<img
+			src="<?php echo $image->url; ?>"
+			class="gallery-item <?php echo ($key==0) ? 'active' : ''; ?>"
+			style="width: 300px;"/>
 		<?php } ?>
 
 	</div>
 
 </div>
-
-<!-- buttons -->
-<div>
-	<?php
-
-	if (count($images) <= 0){
-		echo "Esta galeria ainda não possui nenhuma foto.";
-	}else{
-	foreach($buttons as $key => $button) { ?>
-		<img src="<?php echo($button); ?>" class=" <?php echo ($key==0) ? 'btn-back' : 'btn-advance'; ?>"  style="width: 50px;">
-	<?php }
+		<?php foreach($buttons as $key => $button) { ?>
+		<img
+			src="<?php echo($button); ?>"
+			class=" <?php echo ($key==0) ? 'btn-back' : 'btn-advance'; ?>"
+			style="width: 50px;">
+		<?php }
 	}?>
 </div>
 
 <form action="<?php echo base_url('addImage/index/'.$idGallery) ?>" method="post">
+
 	<button type="submit">Add imagem</button>
+
 </form>
 
 <script>
