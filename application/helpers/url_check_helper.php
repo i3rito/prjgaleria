@@ -1,8 +1,16 @@
-<?php
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-public function is_valid($str)
+/**
+ * @param $url
+ * is the recived URL
+ * @return bool
+ * true = if $url is a valid URL
+ * false = if $url isn't a valid URL
+ */
+
+function is_valid($url)
 {
-	if (filter_var($str, FILTER_VALIDATE_URL) === FALSE)
+	if (filter_var($url, FILTER_VALIDATE_URL) === FALSE)
 	{
 		return FALSE;
 	}
@@ -11,4 +19,3 @@ public function is_valid($str)
 		return TRUE;
 	}
 }
-
