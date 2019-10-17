@@ -1,18 +1,9 @@
 
-	<h1><?php echo $title; ?></h1>
+<div class="jumbotron jumbotron-fluid">
+	<div class="container">
+		<h1 class="display-4"><?php echo $title; ?></h1>
+		<p class="lead "> Desenvolvida com o intuito de praticar ferramentas de desenvolvimento,
+			H leria permite que o usuario Veja e crie galerias e nelas, veja e adicione imagens. </p>
+	</div>
+</div>
 
-	<p>Tecnologias utilizadas:</p>
-	<br>
-	<p>CodeIgniter </p>
-	<br>
-	<p> PHPStorm </p>
-	<br>
-	<p>	Git </p>
-	<br>
-	<p>	Bitbucket </p>
-	<br>
-	<p>	PHP </p>
-	<br>
-	<p>	PHPMyAdmin </p>
-	<br>
-	<p>	JQuery </p>

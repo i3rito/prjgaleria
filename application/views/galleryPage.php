@@ -1,87 +1,63 @@
 
-<h1><?php echo $title; ?></h1>
-
-<p> Criada em: <?php echo $galleryDate;?> </p>
-
-<!-- buttons -->
-<div>
-	<?php if (count($images) <= 0) { ?>
-	Esta galeria ainda não possui nenhuma foto.
-	<?php } else { ?>
-
-	<div id="viewport">
-		<!-- Imagens -->
-		<div>
-			<?php foreach($images as $key => $image) { ?>
-		<img
-			src="<?php echo $image->url; ?>"
-			class="gallery-item <?php echo ($key==0) ? 'active' : ''; ?>"
-			style="width: 300px;"/>
-		<?php } ?>
-
+<div class="jumbotron">
+	<div class="container">
+		<h1 class="display-4"><?php echo $title; ?></h1>
+		<hr class="my-4">
+		<p class="lead"> Criada em: <?php echo $galleryDate;?></p>
 	</div>
-
-</div>
-		<?php foreach($buttons as $key => $button) { ?>
-		<img
-			src="<?php echo($button); ?>"
-			class=" <?php echo ($key==0) ? 'btn-back' : 'btn-advance'; ?>"
-			style="width: 50px;">
-		<?php }
-	}?>
 </div>
 
-<form action="<?php echo base_url('addImage/index/'.$idGallery) ?>" method="post">
+<?php if (count($images) <= 0) { ?>
 
-	<button type="submit">Add imagem</button>
+<div class="card container">
+	<div class="card-body">
+		<h4 class="card-text">Esta galeria ainda não possui nenhuma foto.</h4>
+		<form action="<?php echo base_url('addImage/index/'.$idGallery) ?>"
+			  method="post"
+			  class="d-flex justify-content-center">
+			<button class="btn btn-primary btn-md" type="submit">Add imagem</button>
+		</form>
+	</div>
+</div>
 
-</form>
+<?php } else { ?>
 
-<script>
-    (function() {
+<div class="bd-example justify-content-center w-50 container">
+	<div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+		<ol class="carousel-indicators">
+			<?php foreach($images as $key => $image) { ?>
+				<li data-target="#carouselExampleCaptions" data-slide-to="$key"
+					class="
+						<?php echo ($key==0) ? 'active' : ''; ?>">
+				</li>
+			<?php } ?>
+		</ol>
+		<div class="carousel-inner">
 
-        var imagens = $('.gallery-item');
+			<?php foreach($images as $key => $image) { ?>
+				<div class="carousel-item
+					 <?php echo ($key==0) ? 'active' : ''; ?>">
+					<img
+						src="<?php echo $image->url; ?>"
+						class="d-block w-100"
+					/>
+				</div>
+			<?php } ?>
+		</div>
 
-        var indiceAtivo;
-        var numeroImagnes = imagens.length;
-        var proximoAtivo;
-
-        imagens.each(function(index, value) {
-            if( $(value).hasClass('active') ) {
-                indiceAtivo = index;
-            }
-        });
-
-        // Avançar imagem.
-        $('.btn-advance').click(function() {
-            var imagens = $('.gallery-item');
-            $(imagens[indiceAtivo]).removeClass('active');
-
-            if( indiceAtivo == numeroImagnes-1 ) {
-                proximoAtivo = 0;
-            } else {
-                proximoAtivo = indiceAtivo + 1;
-            }
-
-            $(imagens[proximoAtivo]).addClass('active');
-            indiceAtivo = proximoAtivo;
-        });
-
-        // Voltar imagem.
-        $('.btn-back').click(function() {
-            var imagens = $('.gallery-item');
-            $(imagens[indiceAtivo]).removeClass('active');
-
-            if( indiceAtivo == 0 ) {
-                proximoAtivo = numeroImagnes-1;
-            } else {
-                proximoAtivo = indiceAtivo - 1;
-            }
-
-            $(imagens[proximoAtivo]).addClass('active');
-            indiceAtivo = proximoAtivo;
-        });
-
-    })();
-</script>
-
+		<a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+			<span class="sr-only">Previous</span>
+		</a>
+		<a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+			<span class="carousel-control-next-icon" aria-hidden="true"></span>
+			<span class="sr-only">Next</span>
+		</a>
+	</div>
+</div><br>
+<div class="container">
+	<form action="<?php echo base_url('addImage/index/'.$idGallery) ?>" method="post">
+		<button class="btn btn-primary btn-lg" type="submit">Add imagem</button>
+	</form>
+</div>
+<?php } ?>
