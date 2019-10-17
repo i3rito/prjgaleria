@@ -1,4 +1,4 @@
-#O que é o projeto hLerias
+# O que é o projeto hLerias #
 
 O projeto hLerias é um sistema gerenciador de galerias e imagens
 que permite que o usuário crie galerias e adicione imagens.
@@ -8,25 +8,25 @@ desenvolvimento.
 
 ----
 
-##Tecnologias utilizadas no desenvolvimento do projeto:
+## Tecnologias utilizadas no desenvolvimento do projeto:
 
-###linguagens
+### linguagens
 
 *	html
 *	css
 *	javascript
 *	php
 
-###Frameworks
+### Frameworks
 
 *	codeigniter
 *	bootstrap
 
-###IDE
+### IDE
 
 *	phpstorm
 
-###Outros
+### Outros
 
 
 *	jquery
