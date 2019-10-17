@@ -1,5 +1,5 @@
 ###################
-O que é o projeto Hlerias
+O que é o projeto hLerias
 ###################
 
 O projeto hLerias é um sistema gerenciador de galerias e imagens
