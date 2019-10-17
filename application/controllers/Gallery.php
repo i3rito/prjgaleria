@@ -12,35 +12,18 @@ class Gallery extends CI_Controller {
 
 		$gallery = $this->Gallery_model->getGallery($idGallery);
 		$galleryDate = $gallery->galleryDate;
+		$navActive = 'galleryList';
 		$data['idGallery'] = $idGallery;
 		$data['images'] = $this->Imagens_model->getImages($idGallery);
 		$data['buttons'] = $buttons;
 		$data['galleryDate'] = $galleryDate;
 		$data['title'] = $gallery->name;
+		$data ['navActive'] = $navActive;
 
 		# View.
-		$this->load->view('templates/header');
-		$this->load->view('templates/gallery/header');
+		$this->load->view('templates/header', $data);
 		$this->load->view('galleryPage', $data);
-		$this->load->view('templates/gallery/footer');
-
-	}
-	public function create(){
-
-		$this->load->helper('form');
-		$this->load->library('form_validation');
-		$this->form_validation->set_rules('url', 'text', 'required');
-		$this->form_validation->set_rules('idGallery', 'hidden', 'required');
-
-		if ($this->form_validation->run() === FALSE)
-		{
-			show_404();
-		} else
-		{
-			$idGallery = $this->input->post('idGallery');
-			$url = $this->input->post('url');
-			$this->Imagens_model->insertImage($url, $idGallery);
-		}
+		$this->load->view('templates/footer');
 
 	}
 }

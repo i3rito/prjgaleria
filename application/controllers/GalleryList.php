@@ -5,6 +5,7 @@ class GalleryList extends CI_Controller {
 	public function index()
 	{
 		$title = 'Galerias';
+		$navActive = 'galleryList';
 		$galleryList = $this->Gallery_model->getGalleryList();
 		$galleries = array();
 		foreach ($galleryList as $gallery)
@@ -15,10 +16,11 @@ class GalleryList extends CI_Controller {
 			$galleries[] = $gallery;
 		}
 		$data ['title'] = $title;
+		$data ['navActive'] = $navActive;
 		$data ['galleryList'] = $galleries;
 
 		# View.
-		$this->load->view('templates/header');
+		$this->load->view('templates/header', $data);
 		$this->load->view('galleryList', $data);
 		$this->load->view('templates/footer');
 	}
