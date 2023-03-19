@@ -1,9 +1,24 @@
-.container{
+.container {
 	text-align: center;
 }
-tr{
+
+tr {
 	text-align: center
 }
-.form-group{
-	align: center;
+
+.form-group {
+align: center;
+}
+.card{
+
+	img{
+		margin-top:10px;
+	}
+
+}
+
+.card:hover{
+	img{
+		width: 85%;
+	}
 }

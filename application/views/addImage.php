@@ -12,7 +12,7 @@
 				<div class="form-group mb-2">
 					<input type="text" class="form-control"  name="url" placeholder="www.linkdaimagem.com" />
 				</div>
-				<input type="hidden" name="$idGallery"value = "<?php echo $idGallery; ?>" />
+				<input type="hidden" name="idGallery"value = "<?php echo $idGallery; ?>" />
 				<div class="form-group mx-sm-3 mb-2">
 					<a href="<?php echo base_url('gallery/index/' . $idGallery);?>" class="btn btn-danger btn-">Cancelar</a>
 					<button type="submit " class="btn btn-primary">Add imagem</button>

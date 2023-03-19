@@ -49,13 +49,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller'] = 'galleryList';
+$route['default_controller'] = 'ListGalleries';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
-$route['AddGallery'] = 'addGallery';
-$route['AddGallery/add'] = 'addGallery/add';
-$route['AddImage/add'] = 'addImage/add';
-$route['gallery/create'] = 'gallery/create';
+$route['home'] = 'Home';
+$route['about'] = 'About';
+$route['gallery/list'] = 'ListGalleries/index/0';
+$route['gallery/list/(:num)'] = 'ListGalleries/index/$1';
+$route['gallery/(:num)'] = 'Gallery/index/$1';
+$route['gallery/add'] = 'AddGallery';
+$route['gallery/new'] = 'AddGallery/add';
+$route['gallery/remove'] = 'DeleteGallery/remove';
+$route['gallery/edit/(:num)'] = 'UpdateGallery/index/$1';
+$route['gallery/update'] = 'UpdateGallery/update';
+
+$route['addImage/add'] = 'AddImage/add';
 
 
 

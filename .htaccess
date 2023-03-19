@@ -4,6 +4,7 @@
  # If your page resides at
  #  http://www.example.com/mypage/test1
  # then use RewriteBase /mypage/test1/
+ RewriteCond %{HTTP_HOST} ^www.prjgaleria.test
  RewriteBase /
  RewriteCond %{REQUEST_FILENAME} !-f
  RewriteCond %{REQUEST_FILENAME} !-d

@@ -5,10 +5,11 @@ class About extends CI_Controller{
 
 	public function index()
 	{
-		$title = 'Sobre';
-		$navActive = 'about';
-		$data ['title'] = $title;
-		$data ['navActive'] = $navActive;
+		# Prepara os dados para a view.
+		$data ['title'] = 'Sobre';
+		$data ['navActive'] = 'about';
+
+		# Carrega a view.
 		$this->load->view('templates/header', $data);
 		$this->load->view('about', $data);
 		$this->load->view('templates/footer');

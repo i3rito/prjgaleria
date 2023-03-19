@@ -5,10 +5,11 @@ class Home extends CI_Controller{
 
 	public function index()
 	{
-		$title = 'hLeria';
-		$navActive = 'home';
-		$data ['title'] = $title;
-		$data ['navActive'] = $navActive;
+		# Prepara os dados para a View.
+		$data ['title'] = 'hLeria';
+		$data ['navActive'] = 'home';
+
+		# Carrega  a View.
 		$this->load->view('templates/header', $data);
 		$this->load->view('home', $data);
 		$this->load->view('templates/footer');

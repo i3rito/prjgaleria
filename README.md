@@ -4,7 +4,7 @@ O projeto hLerias é um sistema gerenciador de galerias e imagens
 que permite que o usuário crie galerias e adicione imagens.
 
 Ele foi desenvolvido com o intuito de praticar o uso de ferramentas de
-desenvolvimento web.
+desenvolvimento.
 
 ----
 
